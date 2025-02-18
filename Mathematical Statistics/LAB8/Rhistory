@@ -1,0 +1,80 @@
+library(ggplot2, lib.loc = "C:/Program Files/R/R-4.1.1/library")
+library(readxl)
+library(dplyr, lib.loc = "C:/Program Files/R/R-4.1.1/library")
+library(moments, lib.loc = "C:/Program Files/R/R-4.1.1/library")
+library(readxl)
+Ankieta2023 <- read_excel("I:/MSzS2/Ankieta2023.xlsx",
+col_types = c("numeric", "text", "numeric",
+"numeric", "text", "text", "numeric",
+"numeric", "numeric", "numeric",
+"numeric", "numeric", "numeric",
+"numeric", "text", "numeric", "text",
+"numeric", "numeric"))
+View(Ankieta2023)
+Ankieta2023$ID
+Ankieta2023$ID=NULL
+Ankieta2023$`Rok wypełnienia ankiety`=NULL
+Ankieta2023$Płeć=factor(Ankieta2023$Płeć,levels=c("Mężczyzna","Kobieta"),labels=c(1,2))
+Ankieta2023$`Miejsce zamieszkania podczas studiowania`=factor(Ankieta2023$`Miejsce zamieszkania podczas studiowania`,levels=c("Mieszkanie z rodziną","Akademik","Stancja lub inne"),labels=c(1,2,3))
+Ankieta2023$`Ukończona szkoła średnia`=factor(Ankieta2023$`Ukończona szkoła średnia`,levels=c("LO (klasa z podstawową matematyką)","LO (klasa z rozszerzoną matematyką)","Technikum Informatyczne","Inna"),labels=c(1,2,3,4))
+Ankieta2023$`Najchętniej używany system`=factor(Ankieta2023$`Najchętniej używany system`,levels=c("Windows 8 lub starszy","Windows 10","Inny"),labels=c(1,2,3))
+Ankieta2023$`Forma studiów`=factor(Ankieta2023$`Forma studiów`,levels=c("Stacjonarne","Niestacjonarne"),labels=c(1,2))
+names(Ankieta2023)
+names(Ankieta2023)[4]=c("Zamieszkanie")
+names(Ankieta2023)=c("Płeć","Waga","Wzrost","Zamieszkanie","Szkoła średnia","ECTS","Algebra liniowa","MSzS1","NI","Programowanie","WDI","Liczba godzin","Liczba SO","Używany SO","Wiek","Forma studiów","Rok")
+Ankieta2023
+Ankieta2023$`Algebra liniowa`=ifelse(is.na(Ankieta2023$`Algebra liniowa`),2,Ankieta2023$`Algebra liniowa`)
+Ankieta2023$`MSzS1`=ifelse(is.na(Ankieta2023$`MSzS1`),2,Ankieta2023$`MSzS1`)
+Ankieta2023$`WDI`=ifelse(is.na(Ankieta2023$`WDI`),2,Ankieta2023$`WDI`)
+Ankieta2023$`NI`=ifelse(is.na(Ankieta2023$`NI`),2,Ankieta2023$`NI`)
+Ankieta2023$`Programowanie`=ifelse(is.na(Ankieta2023$`Programowanie`),2,Ankieta2023$`Programowanie`)
+Ankieta2023$`Rok`=ifelse(is.na(Ankieta2023$`Rok`),2023,Ankieta2023$`Rok`)
+library(readxl)
+AnkietaBaza <- read_excel("C:/Users/ms53692/Downloads/AnkietaBaza.xlsx",
+col_types = c("numeric", "text", "numeric",
+"numeric", "text", "text", "numeric",
+"numeric", "numeric", "numeric",
+"numeric", "numeric", "numeric",
+"numeric", "text", "numeric", "text",
+"numeric", "numeric"))
+View(AnkietaBaza)
+AnkietaBaza$ID=NULL
+AnkietaBaza$`Rok wypełnienia ankiety`=NULL
+names(Ankieta2023)[17]=c("Rok")
+names(AnkietaBaza)[17]=c("Rok")
+Ankieta2023$Rok=AnkietaBaza$Rok
+Ankieta2023$`Rok`=ifelse(is.na(Ankieta2023$`Rok`),2020,Ankieta2023$`Rok`)
+zakres3sigm=function(x){data.frame(lewykres=mean(x)-3*sd(x),prawykres=mean(x)+3*sd(x))}
+View(zakres3sigm)
+View(zakres3sigm)
+zakres3sigm=function(x){data.frame(lewykres=mean(x)-3*sd(x),prawykres=mean(x)+3*sd(x))}
+summary(Ankieta2023$`Liczba SO`)
+zakres3sigm(Ankieta2023$`Liczba SO`)
+sd(Ankieta2023$`Liczba SO`)
+mean(Ankieta2023$`Liczba SO`)
+Ankieta2023$`Liczba SO`=ifelse(Ankieta2023$`Liczba SO`>5,2,Ankieta2023$`Liczba SO`)
+zakres3sigm(Ankieta2023$`Liczba SO`)
+AnkietaM=filter(Ankieta2023,Ankieta2023$Pl)
+AnkietaM=filter(Ankieta2023,Ankieta2023$Płeć=="1")
+View(AnkietaM)
+View(AnkietaM)
+AnkietaK=filter(Ankieta2023,Ankieta2023$Płeć=="2")
+data.frame(Ankieta$'Waga w gramach'=Ankieta2023$Waga*1000)
+Ankieta2023$'Waga w gramach'=Ankieta2023$Waga*1000)
+Ankieta2023$'Waga w gramach'=Ankieta2023$Waga*1000
+Ankieta2023$'Wzrost w metrach'=Ankieta2023$Wzrost/100
+hist(Ankieta2023$Waga,breaks=c(40,60,80,100,120,140),xlab="Waga w kg",ylab="Liczba osób")
+hist(Ankieta2023$Wiek,breaks=c(18,19,20,21,22,23,24,25,26,27),xlab="Wiek",ylab="Liczba osób")
+hist(Ankieta2023$Wiek,breaks=c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15),xlab="Wiek",ylab="Liczba osób")
+hist(Ankieta2023$Wiek,breaks=c(1,2,3,4,5,6,7,8,9,10,11,12,13),xlab="Wiek",ylab="Liczba osób")
+hist(Ankieta2023$Wiek,breaks=c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18),xlab="Wiek",ylab="Liczba osób")
+hist(Ankieta2023$WDI,breaks=c(2,3,4,5),xlab="Wiek",ylab="Liczba osób")
+hist(Ankieta2023$WDI,breaks=c(2,3,3.5,4,4.5,5),xlab="Wiek",ylab="Liczba osób")
+hist(Ankieta2023$WDI,breaks=c(2,3,3.5,4,4.5,5),xlab="Wiek",ylab="Liczba osób")
+x=as.numeric(Ankieta2023$`Szkoła średnia`)
+hist(x,breaks(0.5,1.5,2.5,3.5,4.5),xlab="Szkoła średnia 1-LOMP, 2-LOMR, 3-TI, 4-Inna",prob=TRUE,ylab="częstość")
+hist(x,breaks=c(0.5,1.5,2.5,3.5,4.5),xlab="Szkoła średnia 1-LOMP, 2-LOMR, 3-TI, 4-Inna",prob=TRUE,ylab="częstość")
+boxplot(Ankieta2023$Wzrost~Ankieta2023$Płeć)
+stem(Ankieta2023$Waga)
+stem(Ankieta2023$Waga)
+stem(Ankieta2023$Waga)

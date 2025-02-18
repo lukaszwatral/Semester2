@@ -1,0 +1,9 @@
+x = Ankieta$Płeć
+y = Ankieta$`Szkoła średnia`
+chisq.test(x,y)
+#H0 - niezależne
+#H1 - zależne
+pvalue=chisq.test(x,y)$p.value
+alfa=0.05 # poziom istotnosci testu
+decyzja=ifelse(pvalue >alfa,"na poziomie istotnosci alfa brak podstaw do odrzucenia H0","na poziomie istotnosci alfa odrzucamy H0, na korzysc H1")
+decyzja

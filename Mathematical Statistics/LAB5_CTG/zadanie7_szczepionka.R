@@ -1,0 +1,7 @@
+#szczepionka
+p = 0.75
+n = 300
+
+a = 220-0.5
+b = 249+0.5
+PA = pnorm(b, n*p, sqrt(n*p*(1-p)))-pnorm(a, n*p, sqrt(n*p*(1-p)))

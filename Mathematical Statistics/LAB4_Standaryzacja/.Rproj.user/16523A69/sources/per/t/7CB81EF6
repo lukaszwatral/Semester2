@@ -1,0 +1,26 @@
+{
+    "id": "7CB81EF6",
+    "path": "~/MSZS2_RStudio/LAB4_Standaryzacja/zadanie2_nieznanaSredniaWartoscOczekiwana.R",
+    "project_path": "zadanie2_nieznanaSredniaWartoscOczekiwana.R",
+    "type": "r_source",
+    "hash": "725143736",
+    "contents": "",
+    "dirty": false,
+    "created": 1685631988849.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "20,0",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1680188883,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1680188883,
+    "read_only": false,
+    "read_only_alternatives": []
+}
